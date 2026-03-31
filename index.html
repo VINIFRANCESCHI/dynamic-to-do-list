@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minhas Tarefas</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+        }
+        body {
+            border: 2px solid burlywood;
+            min-height: 100vh;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            display: flex;
+            flex-direction: column;
+        }
+
+        header {
+
+        }
+
+        main {
+            flex: auto;
+
+        }
+
+        footer {
+
+        }
+        
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Tarefas</h1>
+    </header>
+    <main>
+        <ul></ul>
+    </main>
+    <footer>
+            <input>
+            <button onclick="add()">adicionar</button>
+    </footer>
+    <script>
+
+        // estado da aplicação
+        const tarefas = ['Aprender HTML', 'Aprender CSS', 'Aprender JS']
+        console.log(tarefas)
+
+
+        // alteradores de estado da aplicação
+        function add() {
+            const input = document.querySelector("input")
+            const tarefa = input.value
+            tarefas.push(tarefa)
+            input.value = ""
+            render()
+        }
+        
+        // mostrar o estado na tela
+        function render() {
+            const ul = document.querySelector("ul")
+            ul.innerHTML = null
+            
+            tarefas.forEach(function (tarefa) {
+                const li = document.createElement("li")
+                li.innerText = tarefa
+                ul.appendChild(li)
+
+            })
+        }
+
+        // iniciar processo
+        render()
+
+    </script>
+</body>
+
+</html>
